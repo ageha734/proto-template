@@ -2,6 +2,27 @@
 
 Proto WASM plugin for **TOOL_NAME**.
 
+## Getting Started
+
+Clone this template and run the initializer to replace all placeholders:
+
+```sh
+git clone https://github.com/ORGANIZATION/proto-template.git proto-TOOL_NAME
+cd proto-TOOL_NAME
+./init.sh
+```
+
+The script will prompt for:
+
+| Prompt | Example | Description |
+| --- | --- | --- |
+| Tool name | `AWS CLI` | Display name used in metadata and docs |
+| Plugin ID | `awscli` | Identifier for `proto install <id>` (snake_case) |
+| Organization | `ageha734` | GitHub org or user for the repository |
+| Author | `ageha734` | `authors` field in Cargo.toml |
+
+After running, all `TOOL_NAME` / `ORGANIZATION` / `USERNAME` placeholders are replaced and `init.sh` can be removed.
+
 ## Usage
 
 Add to `.prototools`:

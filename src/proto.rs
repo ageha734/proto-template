@@ -71,11 +71,7 @@ pub fn download_prebuilt(
         _ => unreachable!(),
     };
 
-    let ext = if env.os.is_windows() {
-        "zip"
-    } else {
-        "tar.gz"
-    };
+    let ext = if env.os.is_windows() { "zip" } else { "tar.gz" };
 
     let download_url = config
         .dist_url

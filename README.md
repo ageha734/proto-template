@@ -1,1 +1,76 @@
-# proto-template
+# proto-TOOL_NAME
+
+Proto WASM plugin for **TOOL_NAME**.
+
+## Usage
+
+Add to `.prototools`:
+
+```toml
+TOOL_NAME = "x.y.z"
+
+[plugins.tools]
+TOOL_NAME = "github://ORGANIZATION/proto-TOOL_NAME"
+```
+
+Then:
+
+```sh
+proto install TOOL_NAME
+```
+
+## Development
+
+### Prerequisites
+
+- Rust (version specified in `rust-toolchain.toml`)
+- `wasm32-wasip1` target
+
+### Build
+
+```sh
+cargo build --target wasm32-wasip1 --release --features wasm
+```
+
+### Test
+
+```sh
+cargo test
+```
+
+### Lint
+
+```sh
+cargo fmt -- --check
+cargo clippy --target wasm32-wasip1 --features wasm -- -D warnings
+```
+
+## Configuration
+
+Plugin configuration can be set in `.prototools`:
+
+```toml
+[tools.tool_name]
+dist-url = "https://example.com/releases/{version}/{platform}-{arch}.{ext}"
+```
+
+### Placeholders
+
+| Placeholder  | Description                         |
+| ------------ | ----------------------------------- |
+| `{version}`  | Resolved version                    |
+| `{platform}` | `linux`, `darwin`, or `windows`     |
+| `{arch}`     | `x86_64`, `aarch64`, etc.           |
+| `{ext}`      | `tar.gz` (Unix) or `zip` (Windows)  |
+
+## Release
+
+Releases are automated via GitHub Actions:
+
+1. Push to `master` triggers `auto-release.yaml` which creates a release PR with a pre-release version.
+2. Merging the release PR triggers `on-release-merge.yaml` which tags and publishes a draft pre-release.
+3. Use `promote-release.yaml` (workflow_dispatch) to promote a pre-release to stable.
+
+## License
+
+[MIT](LICENSE)

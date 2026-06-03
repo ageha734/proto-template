@@ -1,5 +1,5 @@
 [package]
-name = "proto_TOOL_NAME"
+name = "proto_tool_name"
 version = "0.1.0"
 edition = "2024"
 description = "Proto WASM plugin for TOOL_NAME."

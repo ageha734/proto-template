@@ -28,19 +28,19 @@ jobs:
 
       - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: proto_TOOL_NAME.wasm
+          name: proto_tool_name.wasm
           path: .
 
       - name: Compute checksum
-        run: sha256sum proto_TOOL_NAME.wasm > proto_TOOL_NAME.wasm.sha256
+        run: sha256sum proto_tool_name.wasm > proto_tool_name.wasm.sha256
 
       - uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
         with:
           tag_name: ${{ inputs.tag }}
           draft: true
           files: |
-            proto_TOOL_NAME.wasm
-            proto_TOOL_NAME.wasm.sha256
+            proto_tool_name.wasm
+            proto_tool_name.wasm.sha256
           prerelease: ${{ contains(inputs.tag, '-alpha.') }}
           generate_release_notes: true
 

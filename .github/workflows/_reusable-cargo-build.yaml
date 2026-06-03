@@ -39,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: proto_TOOL_NAME.wasm
-          path: target/wasm32-wasip1/release/proto_TOOL_NAME.wasm
+          name: proto_tool_name.wasm
+          path: target/wasm32-wasip1/release/proto_tool_name.wasm
           if-no-files-found: error
           retention-days: 3

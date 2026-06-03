@@ -47,11 +47,8 @@ find "$SCRIPT_DIR" -type f \
   -not -name 'init.sh' \
   | while IFS= read -r file; do
     if file "$file" | grep -q text; then
-      # TOOL_NAME in workflows (proto_TOOL_NAME.wasm, proto install TOOL_NAME, etc.)
-      # must be replaced with the correct form per context
-
-      # Replace proto_TOOL_NAME (crate/artifact name) -> proto_<plugin_id>
-      sed -i'' -e "s/proto_TOOL_NAME/${CRATE_NAME}/g" "$file"
+      # Replace proto_tool_name (crate/artifact name) -> proto_<plugin_id>
+      sed -i'' -e "s/proto_tool_name/${CRATE_NAME}/g" "$file"
 
       # Replace TOOL_NAME (display name in source code and docs)
       sed -i'' -e "s/TOOL_NAME/${TOOL_DISPLAY_NAME}/g" "$file"
